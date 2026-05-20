@@ -13,13 +13,6 @@ public class HomepageController
         modelo.addAttribute("mensaje", "Hola ForaZone!!!");
         return "index";
     }
-
-<<<<<<< HEAD
-    @GetMapping("/beforeSignup")
-    public String beforeSignup()
-    {
-        return "signup/before_signup";
-=======
     @GetMapping("/gotoLogin")
     public String gotoLogin()
     {
@@ -30,6 +23,5 @@ public class HomepageController
     public String gotoSignup()
     {
         return "redirect:/signup";
->>>>>>> 3b7ed41 (Primer commit: sitio web simple, implementacion de Spring Boot, Thymeleaf y Bootstrap y creacion de modelos y DAO general)
     }
 }
