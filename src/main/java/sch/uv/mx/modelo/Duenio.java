@@ -15,6 +15,9 @@ public class Duenio extends Usuario implements Serializable
     private String Nombre;
     private String ApPat;
     private String ApMat;
+<<<<<<< HEAD
     private String correoElectronico;
+=======
+>>>>>>> 3b7ed41 (Primer commit: sitio web simple, implementacion de Spring Boot, Thymeleaf y Bootstrap y creacion de modelos y DAO general)
     private float reputacion;
 }
