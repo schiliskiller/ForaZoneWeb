@@ -13,6 +13,7 @@ public class HomepageController
         modelo.addAttribute("mensaje", "Hola ForaZone!!!");
         return "index";
     }
+
     @GetMapping("/gotoLogin")
     public String gotoLogin()
     {
