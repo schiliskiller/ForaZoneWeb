@@ -36,10 +36,6 @@ build/
 .vscode/
 
 ### Mac OS ###
-<<<<<<< HEAD
 .DS_Store
 
 src/main/java/sch/uv/mx/vista/ConexionMongo.java
-=======
-.DS_Store
->>>>>>> 3b7ed41 (Primer commit: sitio web simple, implementacion de Spring Boot, Thymeleaf y Bootstrap y creacion de modelos y DAO general)
