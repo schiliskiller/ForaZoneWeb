@@ -14,15 +14,9 @@ public class HomepageController
         return "index";
     }
 
-    @GetMapping("/gotoLogin")
-    public String gotoLogin()
-    {
-        return "redirect:/login";
-    }
-
-    @GetMapping("/gotoSignup")
+    @GetMapping("/beforeSignup")
     public String gotoSignup()
     {
-        return "redirect:/signup";
+        return "signup/before_signup";
     }
 }
