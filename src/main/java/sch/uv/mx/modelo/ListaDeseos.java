@@ -1,17 +1,45 @@
 package sch.uv.mx.modelo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 
 import java.io.Serializable;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class ListaDeseos extends ObjetoMongo implements Serializable
 {
     private static final long serialVersionUID = 1L;
     private Estudiante estudiante;
     private Vivienda viviendaBuscada;
+
+    public ListaDeseos(Estudiante estudiante, Vivienda viviendaBuscada)
+    {
+        this.estudiante = estudiante;
+        this.viviendaBuscada = viviendaBuscada;
+    }
+
+    public ListaDeseos(ObjectId oid, Estudiante estudiante, Vivienda viviendaBuscada)
+    {
+        super(oid);
+        this.estudiante = estudiante;
+        this.viviendaBuscada = viviendaBuscada;
+    }
+
+    public Estudiante getEstudiante()
+    {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante)
+    {
+        this.estudiante = estudiante;
+    }
+
+    public Vivienda getViviendaBuscada()
+    {
+        return viviendaBuscada;
+    }
+
+    public void setViviendaBuscada(Vivienda viviendaBuscada)
+    {
+        this.viviendaBuscada = viviendaBuscada;
+    }
 }

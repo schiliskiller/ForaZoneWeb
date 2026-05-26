@@ -24,10 +24,10 @@
 <!--      <version>4.1.0-RC1</version>-->
 <!--      <scope>compile</scope>-->
 <!--    </dependency>-->
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-thymeleaf</artifactId>
-      </dependency>
+<!--    <dependency>-->
+<!--          <groupId>org.springframework.boot</groupId>-->
+<!--          <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--      </dependency>-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-webmvc</artifactId>
@@ -60,15 +60,34 @@
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>4.0.1</version>
+      <!-- Source: https://mvnrepository.com/artifact/org.mongodb/mongodb-jdbc -->
+    </dependency>
+    <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver-core</artifactId>
+        <version>5.7.0</version>
     </dependency>
     <!-- Source: https://mvnrepository.com/artifact/org.mongodb/mongodb-jdbc -->
     <dependency>
       <groupId>org.mongodb</groupId>
       <artifactId>mongodb-driver-sync</artifactId>
-      <version>4.11.0</version>
+      <version>5.7.0</version>
       <scope>compile</scope>
     </dependency>
-    <!-- Source: https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <!-- Source: https://mvnrepository.com/artifact/io.micrometer/micrometer-tracing -->
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-tracing</artifactId>
+      <version>1.6.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-tracing-bridge-otel</artifactId>
+      <version>1.6.5</version>
+      <scope>compile</scope>
+    </dependency>
+      <!-- Source: https://mvnrepository.com/artifact/com.google.code.gson/gson -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -82,15 +101,20 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.46</version>
-      <scope>provided</scope>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <version>11.0.22</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.projectlombok</groupId>-->
+<!--      <artifactId>lombok</artifactId>-->
+<!--      <version>1.18.46</version>-->
+<!--      <scope>provided</scope>-->
+<!--    </dependency>-->
   </dependencies>
   <build>
     <finalName>ForaZone</finalName>
-    <plugins>
+<!--    <plugins>-->
 <!--      <plugin>-->
 <!--        <artifactId>maven-compiler-plugin</artifactId>-->
 <!--        <version>3.8.0</version>-->
@@ -112,6 +136,6 @@
 <!--          <target>10</target>-->
 <!--        </configuration>-->
 <!--      </plugin>-->
-    </plugins>
+<!--    </plugins>-->
   </build>
 </project>

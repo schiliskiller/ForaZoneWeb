@@ -4,31 +4,119 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="archivos limpiados">
+      <change afterPath="$PROJECT_DIR$/src/test/java/sch/uv/mx/vista/ConexionMongoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/sch/uv/mx/vista/MongoDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/CasaCompartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/CasaCompartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Departamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Departamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Direccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Duenio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Duenio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Estudiante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Institucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Institucion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ListaDeseos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ListaDeseos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ObjetoMongo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ObjetoMongo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Pension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Pension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/vista/MongoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/vista/MongoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temp/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup/before_signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temp/signup/before_signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temp/signup/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup/signup_estudiantes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/temp/signup/signup_estudiantes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/CasaCompartida.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/CasaCompartida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Comentario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Departamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Departamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Direccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Direccion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Duenio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Duenio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Estudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Estudiante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Institucion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Institucion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ListaDeseos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ListaDeseos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ObjetoMongo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ObjetoMongo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Pension.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Pension.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/ConexionMongo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/ConexionMongo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/MongoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/MongoDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="3ECFVuHW2S0dUDWmoIwtWqZUyQo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.Unnamed.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.Unnamed.executor": "Run",
-    "git-widget-placeholder": "master"
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit6",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit6": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/brskr/Documentos/UV/DAW/ForaZone/src/main/webapp/style",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/style" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="sch.uv.mx.vista" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Unnamed">
+    <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="ForaZone" />
+      <option name="PACKAGE_NAME" value="sch.uv.mx.vista" />
+      <option name="MAIN_CLASS_NAME" value="sch.uv.mx.vista.ConexionMongoTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ForaZone" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="sch.uv.mx.MainApplication" />
@@ -36,8 +124,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.Unnamed" />
+      <item itemvalue="Spring Boot.Unnamed" />
+    </list>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="archivos limpiados">
+      <option name="closed" value="true" />
+      <created>1779671838276</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779671838277</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="archivos limpiados" />
+      <created>1779674679234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779674679234</updated>
+      <workItem from="1779674680453" duration="9144000" />
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="archivos limpiados" />
+    <option name="LAST_COMMIT_MESSAGE" value="archivos limpiados" />
   </component>
 </project>
