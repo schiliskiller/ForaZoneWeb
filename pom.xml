@@ -17,17 +17,6 @@
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
   <dependencies>
-<!--    &lt;!&ndash; Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot &ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot</artifactId>-->
-<!--      <version>4.1.0-RC1</version>-->
-<!--      <scope>compile</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--          <groupId>org.springframework.boot</groupId>-->
-<!--          <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-<!--      </dependency>-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-webmvc</artifactId>
@@ -105,37 +94,8 @@
       <artifactId>tomcat-embed-jasper</artifactId>
       <version>11.0.22</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>org.projectlombok</groupId>-->
-<!--      <artifactId>lombok</artifactId>-->
-<!--      <version>1.18.46</version>-->
-<!--      <scope>provided</scope>-->
-<!--    </dependency>-->
   </dependencies>
   <build>
     <finalName>ForaZone</finalName>
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        <artifactId>maven-compiler-plugin</artifactId>-->
-<!--        <version>3.8.0</version>-->
-<!--        <configuration>-->
-<!--          <annotationProcessorPaths>-->
-<!--            <path>-->
-<!--              <groupId>org.projectlombok</groupId>-->
-<!--              <artifactId>lombok</artifactId>-->
-<!--              <version>1.18.24</version>-->
-<!--            </path>-->
-<!--          </annotationProcessorPaths>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-compiler-plugin</artifactId>-->
-<!--        <configuration>-->
-<!--          <source>10</source>-->
-<!--          <target>10</target>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-<!--    </plugins>-->
   </build>
 </project>
