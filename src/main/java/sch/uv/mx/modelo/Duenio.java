@@ -1,10 +1,14 @@
 package sch.uv.mx.modelo;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Document(collection = "usuarios")
+@TypeAlias("duenio")
 public class Duenio extends Usuario implements Serializable
 {
     private static final long serialVersionUID = 1L;

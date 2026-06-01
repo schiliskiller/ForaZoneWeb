@@ -1,16 +1,24 @@
 package sch.uv.mx.modelo;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Document(collection = "usuarios")
 public abstract class Usuario extends ObjetoMongo implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    private   int    ID_Usuario;
-    private   String Nombre_Usuario;
-    private   Date   Fecha_Nacimiento;
+    @Id
+    private   int    IDUsuario;
+    @Field("NombreUsuario")
+    private   String nombreUsuario;
+    @Field("Fecha_Nacimiento")
+    private   Date   fechaNacimiento;
+    @Field("contrEncriptada")
     transient String contrEncriptada;
 
     public Usuario()
@@ -20,8 +28,8 @@ public abstract class Usuario extends ObjetoMongo implements Serializable
     public Usuario(ObjectId oid, Date fecha_Nacimiento, String nombre_Usuario)
     {
         super(oid);
-        Fecha_Nacimiento = fecha_Nacimiento;
-        Nombre_Usuario = nombre_Usuario;
+        fechaNacimiento = fecha_Nacimiento;
+        nombreUsuario = nombre_Usuario;
     }
 
     public Usuario(ObjectId oid)
@@ -32,39 +40,39 @@ public abstract class Usuario extends ObjetoMongo implements Serializable
     public Usuario(ObjectId oid, String nombre_Usuario, Date fecha_Nacimiento, String contrEncriptada)
     {
         super(oid);
-        Nombre_Usuario = nombre_Usuario;
-        Fecha_Nacimiento = fecha_Nacimiento;
+        nombreUsuario = nombre_Usuario;
+        fechaNacimiento = fecha_Nacimiento;
         this.contrEncriptada = contrEncriptada;
     }
 
-    public int getID_Usuario()
+    public int getIDUsuario()
     {
-        return ID_Usuario;
+        return IDUsuario;
     }
 
-    public void setID_Usuario(int ID_Usuario)
+    public void setIDUsuario(int ID_Usuario)
     {
-        this.ID_Usuario = ID_Usuario;
+        this.IDUsuario = ID_Usuario;
     }
 
-    public String getNombre_Usuario()
+    public String getNombreUsuario()
     {
-        return Nombre_Usuario;
+        return nombreUsuario;
     }
 
-    public void setNombre_Usuario(String nombre_Usuario)
+    public void setNombreUsuario(String nombre_Usuario)
     {
-        Nombre_Usuario = nombre_Usuario;
+        nombreUsuario = nombre_Usuario;
     }
 
-    public Date getFecha_Nacimiento()
+    public Date getFechaNacimiento()
     {
-        return Fecha_Nacimiento;
+        return fechaNacimiento;
     }
 
-    public void setFecha_Nacimiento(Date fecha_Nacimiento)
+    public void setFechaNacimiento(Date fecha_Nacimiento)
     {
-        Fecha_Nacimiento = fecha_Nacimiento;
+        fechaNacimiento = fecha_Nacimiento;
     }
 
     public String getContrEncriptada()
