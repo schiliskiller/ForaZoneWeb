@@ -4,33 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Limpieza de pom.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" afterDir="false" />
+    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ComentarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/InstitucionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ViviendaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ComentarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/InstitucionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ViviendaService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/mongodb.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/before_signup.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_estudiantes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_duenios.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/send_json.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/CasaCompartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/CasaCompartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Departamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Departamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Direccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Duenio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Duenio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Estudiante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Institucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Institucion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ListaDeseos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ListaDeseos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ObjetoMongo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Pension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Pension.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/vista/DAOGeneral.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/vista/MongoDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/style/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/style/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/login/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/signup/before_signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/signup/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temp/signup/signup_estudiantes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/before_signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/before_signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_estudiantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_estudiantes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/style/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/SignupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/CasaCompartida.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/CasaCompartida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Comentario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Departamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Departamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Direccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Direccion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Duenio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Duenio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Estudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Estudiante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Institucion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Institucion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ListaDeseos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ListaDeseos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ObjetoMongo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Pension.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Pension.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/style/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/ConexionMongo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/DAOGeneral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/MongoDAO.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +68,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="JavaScript File" />
+        <option value="Spring Repository" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -68,6 +97,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MainApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit6&quot;,
@@ -75,6 +105,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/brskr/Documentos/UV/DAW/ForaZone/src/main/webapp/style&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -87,13 +118,15 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/sch/uv/mx" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="sch.uv.mx.vista" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Unnamed">
+  <component name="RunManager" selected="Spring Boot.MainApplication">
     <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ForaZone" />
       <option name="PACKAGE_NAME" value="sch.uv.mx.vista" />
@@ -104,16 +137,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ForaZone" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="sch.uv.mx.MainApplication" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_WORKING_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="JUnit.Unnamed" />
-      <item itemvalue="Spring Boot.Unnamed" />
+      <item itemvalue="Spring Boot.MainApplication" />
     </list>
   </component>
   <component name="TaskManager">
@@ -133,7 +167,12 @@
       <updated>1779674679234</updated>
       <workItem from="1779674680453" duration="18022000" />
       <workItem from="1779955310057" duration="2943000" />
-      <workItem from="1780289588358" duration="6371000" />
+      <workItem from="1780289588358" duration="13459000" />
+      <workItem from="1780338926947" duration="31353000" />
+      <workItem from="1780506939538" duration="10659000" />
+      <workItem from="1780669476145" duration="1732000" />
+      <workItem from="1780671256367" duration="1686000" />
+      <workItem from="1780782802863" duration="1281000" />
     </task>
     <task id="LOCAL-00002" summary="Lombok y Thymeleaf eliminados del repositorio y modificacion de application.properties y pom.xml para procesar JSPs">
       <option name="closed" value="true" />
@@ -151,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779825231431</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos">
+      <option name="closed" value="true" />
+      <created>1780297822935</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1780297822935</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +219,7 @@
     <MESSAGE value="archivos limpiados" />
     <MESSAGE value="Lombok y Thymeleaf eliminados del repositorio y modificacion de application.properties y pom.xml para procesar JSPs" />
     <MESSAGE value="Limpieza de pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limpieza de pom.xml" />
+    <MESSAGE value="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos" />
   </component>
 </project>

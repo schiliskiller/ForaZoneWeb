@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 
 import java.io.Serializable;
 
-public class ListaDeseos extends ObjetoMongo implements Serializable
+public class ListaDeseos implements Serializable
 {
     private static final long serialVersionUID = 1L;
     private Estudiante estudiante;
@@ -12,13 +12,6 @@ public class ListaDeseos extends ObjetoMongo implements Serializable
 
     public ListaDeseos(Estudiante estudiante, Vivienda viviendaBuscada)
     {
-        this.estudiante = estudiante;
-        this.viviendaBuscada = viviendaBuscada;
-    }
-
-    public ListaDeseos(ObjectId oid, Estudiante estudiante, Vivienda viviendaBuscada)
-    {
-        super(oid);
         this.estudiante = estudiante;
         this.viviendaBuscada = viviendaBuscada;
     }

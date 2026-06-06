@@ -4,16 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sch.uv.mx.modelo.Estudiante;
+import sch.uv.mx.modelo.Institucion;
 import sch.uv.mx.modelo.Usuario;
 import sch.uv.mx.repositorios.UsuarioRepository;
+import sch.uv.mx.servicios.InstitucionService;
 import sch.uv.mx.servicios.UsuarioService;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usr")
 public class UsuarioController
 {
     @Autowired
-    private UsuarioService usrServ;
+    private final UsuarioService usrServ;
 
     public UsuarioController(UsuarioService usrServ)
     {
@@ -23,30 +28,23 @@ public class UsuarioController
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarPorId(@PathVariable Integer id)
     {
-        return new ResponseEntity<>(
-                this.usrServ.buscarPorId(id).get(),
-                HttpStatus.FOUND
-        );
+        Optional<Usuario> found = this.usrServ.buscarPorId(id);
+        return ResponseEntity.ok(found.orElse(null));
     }
 
     @GetMapping("/list/{usrname}")
     public ResponseEntity<Usuario> buscarPorNombreUsuario(@PathVariable String usrname)
     {
-        Usuario found = this.usrServ.buscarPorNombreUsuario(usrname);
-        System.out.println(found);
-        return new ResponseEntity<>(
-                found,
-//                this.usrServ.buscarPorNombreUsuario(usrname),
-                HttpStatus.FOUND
-        );
+        Optional<Usuario> found = this.usrServ.buscarPorNombreUsuario(usrname);
+        System.out.println(found.orElse(null));
+        return ResponseEntity.ok(found.orElse(null));
     }
 
     @PostMapping
     public ResponseEntity<Usuario> agregarUsuario(@RequestBody Usuario usuario)
     {
-        return new ResponseEntity<>(
-                usuario,
-                HttpStatus.CREATED
-        );
+        Usuario usr = this.usrServ.crearUsuario(usuario);
+        System.out.println(usr);
+        return ResponseEntity.ok(usr);
     }
 }

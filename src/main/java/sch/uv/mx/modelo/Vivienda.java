@@ -1,18 +1,41 @@
 package sch.uv.mx.modelo;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
-public class Vivienda extends ObjetoMongo implements Serializable
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = CasaCompartida.class, name = "casa_compartida"),
+        @JsonSubTypes.Type(value = Departamento.class, name = "departamento"),
+        @JsonSubTypes.Type(value = Pension.class, name = "pension")
+})
+@Document(collection = "viviendas")
+public class Vivienda implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    private int ID_Vivienda;
+    @Id
+    private String ID_Vivienda;
+    @Field("RatingTotal")
     private int ratingTotal;
+    @Field("Geopunto")
     private double[] geopunto;
+    @Field("Descripcion")
     private String descripcion;
+    @Field("Precio")
     private double precio;
+    @Field("Duenio")
     private Duenio duenio;
+    @Field("Direccion")
     private Direccion dir;
 
     public Vivienda(int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
@@ -25,9 +48,9 @@ public class Vivienda extends ObjetoMongo implements Serializable
         this.dir = dir;
     }
 
-    public Vivienda(ObjectId oid, int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
+    public Vivienda(String ID_Vivienda, int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
     {
-        super(oid);
+        this.ID_Vivienda = ID_Vivienda;
         this.ratingTotal = ratingTotal;
         this.geopunto = geopunto;
         this.descripcion = descripcion;
@@ -45,17 +68,7 @@ public class Vivienda extends ObjetoMongo implements Serializable
         this.geopunto = geopunto;
     }
 
-    public Vivienda(ObjectId oid, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
-    {
-        super(oid);
-        this.geopunto = geopunto;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.duenio = duenio;
-        this.dir = dir;
-    }
-
-    public int getID_Vivienda()
+    public String getID_Vivienda()
     {
         return ID_Vivienda;
     }

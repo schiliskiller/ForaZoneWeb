@@ -3,20 +3,24 @@ package sch.uv.mx.controlador;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/")
 public class HomepageController
 {
-    @GetMapping("/")
-    public String mensaje(Model modelo)
+    @GetMapping
+    public String mensaje()
     {
-        modelo.addAttribute("mensaje", "Hola ForaZone!!!");
         return "index";
     }
 
-    @GetMapping("/beforeSignup")
+    @GetMapping("/before")
     public String gotoSignup()
     {
         return "signup/before_signup";
     }
+
+
 }

@@ -3,9 +3,11 @@ package sch.uv.mx.modelo;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Document(collection = "usuarios")
@@ -13,20 +15,23 @@ import java.util.Date;
 public class Estudiante extends Usuario implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    transient String token;
+    @Field("token")
+    private String token;
+    @Field("correoInstitucional")
     private String correoInstitucional;
-    private Institucion inst;
+    @Field("institucion")
+    private Institucion institucion;
 
     public Estudiante()
     {
     }
 
-    public Estudiante(ObjectId oid, String nombre_Usuario, Date fecha_Nacimiento, String contrEncriptada, String token, String correoInstitucional, Institucion inst)
+    public Estudiante(String nombre_Usuario, LocalDate fecha_Nacimiento, String contrEncriptada, String token, String correoInstitucional, Institucion inst)
     {
-        super(oid, nombre_Usuario, fecha_Nacimiento, contrEncriptada);
+        super(nombre_Usuario, fecha_Nacimiento, contrEncriptada);
         this.token = token;
         this.correoInstitucional = correoInstitucional;
-        this.inst = inst;
+        this.institucion = inst;
     }
 
     public String getToken()
@@ -49,13 +54,14 @@ public class Estudiante extends Usuario implements Serializable
         this.correoInstitucional = correoInstitucional;
     }
 
-    public Institucion getInst()
+    public Institucion getInstitucion()
     {
-        return inst;
+        return institucion;
     }
 
-    public void setInst(Institucion inst)
+    public void setInstitucion(Institucion inst)
     {
-        this.inst = inst;
+        if (inst == null) return;
+        this.institucion = inst;
     }
 }

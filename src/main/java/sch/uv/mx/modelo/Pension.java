@@ -1,25 +1,25 @@
 package sch.uv.mx.modelo;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
+@Document(collection = "viviendas")
+@TypeAlias("pension")
 public class Pension extends Vivienda implements Serializable
 {
     private static final long serialVersionUID = 1L;
+    @Field("IncluyeAlimentos")
     private boolean incluyeAlimentos;
+    @Field("NumeroComidasAlDia")
     private int numeroComidasAlDia;
 
     public Pension(Direccion dir, Duenio duenio, double precio, String descripcion, double[] geopunto, boolean incluyeAlimentos, int numeroComidasAlDia)
     {
         super(dir, duenio, precio, descripcion, geopunto);
-        this.incluyeAlimentos = incluyeAlimentos;
-        this.numeroComidasAlDia = numeroComidasAlDia;
-    }
-
-    public Pension(ObjectId oid, int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir, boolean incluyeAlimentos, int numeroComidasAlDia)
-    {
-        super(oid, ratingTotal, geopunto, descripcion, precio, duenio, dir);
         this.incluyeAlimentos = incluyeAlimentos;
         this.numeroComidasAlDia = numeroComidasAlDia;
     }

@@ -1,13 +1,20 @@
 package sch.uv.mx.modelo;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
+@Document(collection = "viviendas")
+@TypeAlias("departamento")
 public class Departamento extends Vivienda implements Serializable
 {
     private static final long serialVersionUID = 1L;
+    @Field("NumeroHabitantes")
     private int numeroHabitaciones;
+    @Field("CuotaMantenimiento")
     private double cuotaMantenimiento;
 
     public Departamento(int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
@@ -18,13 +25,6 @@ public class Departamento extends Vivienda implements Serializable
     public Departamento(int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir, int numeroHabitaciones, double cuotaMantenimiento)
     {
         super(ratingTotal, geopunto, descripcion, precio, duenio, dir);
-        this.numeroHabitaciones = numeroHabitaciones;
-        this.cuotaMantenimiento = cuotaMantenimiento;
-    }
-
-    public Departamento(ObjectId oid, int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir, int numeroHabitaciones, double cuotaMantenimiento)
-    {
-        super(oid, ratingTotal, geopunto, descripcion, precio, duenio, dir);
         this.numeroHabitaciones = numeroHabitaciones;
         this.cuotaMantenimiento = cuotaMantenimiento;
     }

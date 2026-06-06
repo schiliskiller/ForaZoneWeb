@@ -1,56 +1,56 @@
 package sch.uv.mx.modelo;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
-public class Comentario extends ObjetoMongo implements Serializable
+@Document(collection = "comentarios")
+public class Comentario implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    private int ID_Comentario;
-    private String Contenido;
+    @Id
+    private String ID_Comentario;
+    @Field("Contenido")
+    private String contenido;
+    @Field("Rating")
     private int rating;
+    @DocumentReference
     private Estudiante autor;
 
     public Comentario()
     {
     }
 
-    public Comentario(int ID_Comentario, String contenido, int rating, Estudiante autor)
+    public Comentario(String ID_Comentario, String contenido, int rating, Estudiante autor)
     {
         this.ID_Comentario = ID_Comentario;
-        Contenido = contenido;
+        this.contenido = contenido;
         this.rating = rating;
         this.autor = autor;
     }
 
-    public Comentario(ObjectId oid, int ID_Comentario, String contenido, int rating, Estudiante autor)
-    {
-        super(oid);
-        this.ID_Comentario = ID_Comentario;
-        Contenido = contenido;
-        this.rating = rating;
-        this.autor = autor;
-    }
-
-    public int getID_Comentario()
+    public String getID_Comentario()
     {
         return ID_Comentario;
     }
 
-    public void setID_Comentario(int ID_Comentario)
+    public void setID_Comentario(String ID_Comentario)
     {
         this.ID_Comentario = ID_Comentario;
     }
 
     public String getContenido()
     {
-        return Contenido;
+        return contenido;
     }
 
     public void setContenido(String contenido)
     {
-        Contenido = contenido;
+        this.contenido = contenido;
     }
 
     public int getRating()

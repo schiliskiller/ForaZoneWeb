@@ -1,17 +1,18 @@
 package sch.uv.mx.modelo;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
-public class Direccion extends ObjetoMongo implements Serializable
+public class Direccion implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    private String Calle;
-    private String NumExt;
-    private String NumInt;
-    private int CodigoPostal;
-    private String Colonia;
+    private String calle;
+    private String numExt;
+    private String numInt;
+    private int codigoPostal;
+    private String colonia;
 
     public Direccion()
     {
@@ -19,70 +20,60 @@ public class Direccion extends ObjetoMongo implements Serializable
 
     public Direccion(String calle, String numExt, String numInt, int codigoPostal, String colonia)
     {
-        Calle = calle;
-        NumExt = numExt;
-        NumInt = numInt;
-        CodigoPostal = codigoPostal;
-        Colonia = colonia;
-    }
-
-    public Direccion(ObjectId oid, String calle, String numExt, String numInt, int codigoPostal, String colonia)
-    {
-        super(oid);
-        Calle = calle;
-        NumExt = numExt;
-        NumInt = numInt;
-        CodigoPostal = codigoPostal;
-        Colonia = colonia;
+        this.calle = calle;
+        this.numExt = numExt;
+        this.numInt = numInt;
+        this.codigoPostal = codigoPostal;
+        this.colonia = colonia;
     }
 
     public String getCalle()
     {
-        return Calle;
+        return this.calle;
     }
 
     public void setCalle(String calle)
     {
-        Calle = calle;
+        this.calle = calle;
     }
 
     public String getNumExt()
     {
-        return NumExt;
+        return this.numExt;
     }
 
     public void setNumExt(String numExt)
     {
-        NumExt = numExt;
+        this.numExt = numExt;
     }
 
     public String getNumInt()
     {
-        return NumInt;
+        return this.numInt;
     }
 
     public void setNumInt(String numInt)
     {
-        NumInt = numInt;
+        this.numInt = numInt;
     }
 
     public int getCodigoPostal()
     {
-        return CodigoPostal;
+        return this.codigoPostal;
     }
 
     public void setCodigoPostal(int codigoPostal)
     {
-        CodigoPostal = codigoPostal;
+        this.codigoPostal = codigoPostal;
     }
 
     public String getColonia()
     {
-        return Colonia;
+        return this.colonia;
     }
 
     public void setColonia(String colonia)
     {
-        Colonia = colonia;
+        this.colonia = colonia;
     }
 }

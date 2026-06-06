@@ -5,13 +5,28 @@
     <head>
         <meta charset="UTF-8">
         <title>ForaZone - Crear cuenta</title>
-        <link rel="stylesheet" href="bootstrap.css">
+        <link rel="stylesheet" href="/style/bootstrap.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="/js/send_json.js"></script>
     </head>
     <body>
-        <form>
+        <form id="signupForm">
             <legend>Por favor ingrese los siguientes datos</legend>
             <fieldset>
+                <div>
+                    <label for="nombre" class="form-label mt-4">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombreDuenio" placeholder="nombre">
+                    <input type="text" class="form-control" id="apPatDuenio" placeholder="appat">
+                    <input type="text" class="form-control" id="apMatDuenio" placeholder="apmat">
+                </div>
+                <div>
+                    <label for="fechaNacimientoDuenio" class="form-label mt-4">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimientoDuenio" placeholder="dd/mm/aa">
+                </div>
+                <div>
+                    <label for="nombreUsuarioDuenio" class="form-label mt-4">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="nombreUsuarioDuenio">
+                </div>
                 <div>
                     <label for="correoCuentaNueva" class="form-label mt-4">Correo electrónico</label>
                     <input type="email" class="form-control" id="correoCuentaNueva" placeholder="abcdxyz@example.com">
@@ -21,7 +36,7 @@
                     <input type="email" class="form-control" id="correoVerificacion" placeholder="abcdxyz@example.com">
                 </div>
                 <div>
-                    <label for="contraCuentaNueva" class="form-label mt-4">Contraseña nueva</label>
+                    <label for="contraCuentaNueva" class="form-label mt-4">Contraseña</label>
                     <input type="password" class="form-control" id="contraCuentaNueva" placeholder="********" autocomplete="off">
                 </div>
                 <div class="form-check">
@@ -30,7 +45,7 @@
                         Esta de acuerdo con nuestro <a href="#">aviso de privacidad</a>.
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="sendDuenioJsonData()">Submit</button>
             </fieldset>
         </form>
     </body>
