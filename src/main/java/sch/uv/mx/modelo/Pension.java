@@ -17,13 +17,6 @@ public class Pension extends Vivienda implements Serializable
     @Field("NumeroComidasAlDia")
     private int numeroComidasAlDia;
 
-    public Pension(Direccion dir, Duenio duenio, double precio, String descripcion, double[] geopunto, boolean incluyeAlimentos, int numeroComidasAlDia)
-    {
-        super(dir, duenio, precio, descripcion, geopunto);
-        this.incluyeAlimentos = incluyeAlimentos;
-        this.numeroComidasAlDia = numeroComidasAlDia;
-    }
-
     public boolean isIncluyeAlimentos()
     {
         return incluyeAlimentos;

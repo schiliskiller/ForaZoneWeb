@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import sch.uv.mx.modelo.Institucion;
 import sch.uv.mx.repositorios.InstitucionRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,5 +27,10 @@ public class InstitucionService
     public Optional<Institucion> buscarPorDominioCorreo(String dominio)
     {
         return this.institucionRepository.findByDominioCorreo(dominio);
+    }
+
+    public List<Institucion> buscarTodo()
+    {
+        return this.institucionRepository.findAll();
     }
 }

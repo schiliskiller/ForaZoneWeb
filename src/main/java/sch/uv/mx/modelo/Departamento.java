@@ -13,21 +13,9 @@ public class Departamento extends Vivienda implements Serializable
 {
     private static final long serialVersionUID = 1L;
     @Field("NumeroHabitantes")
-    private int numeroHabitaciones;
+    private Integer numeroHabitaciones;
     @Field("CuotaMantenimiento")
-    private double cuotaMantenimiento;
-
-    public Departamento(int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
-    {
-        super(ratingTotal, geopunto, descripcion, precio, duenio, dir);
-    }
-
-    public Departamento(int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir, int numeroHabitaciones, double cuotaMantenimiento)
-    {
-        super(ratingTotal, geopunto, descripcion, precio, duenio, dir);
-        this.numeroHabitaciones = numeroHabitaciones;
-        this.cuotaMantenimiento = cuotaMantenimiento;
-    }
+    private Double cuotaMantenimiento;
 
     public int getNumeroHabitaciones()
     {

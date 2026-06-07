@@ -2,6 +2,10 @@ package sch.uv.mx.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sch.uv.mx.modelo.DTO.DuenioDTO;
+import sch.uv.mx.modelo.DTO.EstudianteDTO;
+import sch.uv.mx.modelo.DTO.UsuarioDTO;
+import sch.uv.mx.modelo.Duenio;
 import sch.uv.mx.modelo.Estudiante;
 import sch.uv.mx.modelo.Institucion;
 import sch.uv.mx.modelo.Usuario;
@@ -24,21 +28,50 @@ public class UsuarioService
         this.instServ = instServ;
     }
 
-    public Usuario crearUsuario(Usuario usr)
+    public Usuario crearUsuario(UsuarioDTO usrDTO)
     {
+        Usuario usr = null;
+
         // La IA me recomendo utilizar Pattern Matching para evitar
         // castings con la clase Estudiante
-        if (usr instanceof Estudiante estudiante)
+        if (usrDTO instanceof EstudianteDTO estDTO)
         {
-            String correo = estudiante.getCorreoInstitucional();
+            Estudiante est = new Estudiante();
+
+            String correo = estDTO.correoInstitucional();
 
             if (correo != null)
             {
                 String dominio = correo.split("@")[1];
                 Optional<Institucion> inst = this.instServ.buscarPorDominioCorreo(dominio);
-                estudiante.setInstitucion(inst.orElse(null));
+                est.setInstitucion(inst.orElse(null));
             }
+            est.setCorreoInstitucional(correo);
+            est.setToken(estDTO.token());
+
+            usr = est;
         }
+        else if (usrDTO instanceof DuenioDTO duenioDTO)
+        {
+            Duenio duenio = new Duenio();
+
+            duenio.setNombre(duenioDTO.nombre());
+            duenio.setApPat(duenioDTO.apPat());
+            duenio.setApMat(duenioDTO.apMat());
+            duenio.setCorreoElectronico(duenioDTO.correoElectronico());
+            duenio.setReputacion(duenioDTO.reputacion());
+
+            usr = duenio;
+        }
+
+        if (usr == null)
+        {
+            return null;
+        }
+
+        usr.setNombreUsuario(usrDTO.nombreUsuario());
+        usr.setContrEncriptada(usrDTO.contrEncriptada());
+        usr.setFechaNacimiento(usrDTO.fechaNacimiento());
 
         return this.repository.save(usr);
     }
@@ -48,13 +81,18 @@ public class UsuarioService
         return this.repository.findByNombreUsuario(usrname);
     }
 
-    public Optional<Usuario> buscarPorId(Integer id)
+    public Optional<Usuario> buscarPorId(String id)
     {
         return this.repository.findById(id);
     }
 
-    public void eliminarPorId(Integer id)
+    public void eliminarPorId(String id)
     {
         this.repository.deleteById(id);
+    }
+
+    public List<Usuario> buscarTodo()
+    {
+        return this.repository.findAll();
     }
 }

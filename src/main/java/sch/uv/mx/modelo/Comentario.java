@@ -17,7 +17,7 @@ public class Comentario implements Serializable
     @Field("Contenido")
     private String contenido;
     @Field("Rating")
-    private int rating;
+    private Integer rating;
     @DocumentReference
     private Estudiante autor;
 
@@ -25,7 +25,7 @@ public class Comentario implements Serializable
     {
     }
 
-    public Comentario(String ID_Comentario, String contenido, int rating, Estudiante autor)
+    public Comentario(String ID_Comentario, String contenido, Integer rating, Estudiante autor)
     {
         this.ID_Comentario = ID_Comentario;
         this.contenido = contenido;
@@ -53,12 +53,12 @@ public class Comentario implements Serializable
         this.contenido = contenido;
     }
 
-    public int getRating()
+    public Integer getRating()
     {
         return rating;
     }
 
-    public void setRating(int rating)
+    public void setRating(Integer rating)
     {
         this.rating = rating;
     }

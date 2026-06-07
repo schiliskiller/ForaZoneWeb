@@ -11,20 +11,12 @@ public class Direccion implements Serializable
     private String calle;
     private String numExt;
     private String numInt;
-    private int codigoPostal;
+    private Integer codPostal;
     private String colonia;
+    private String ciudad;
 
     public Direccion()
     {
-    }
-
-    public Direccion(String calle, String numExt, String numInt, int codigoPostal, String colonia)
-    {
-        this.calle = calle;
-        this.numExt = numExt;
-        this.numInt = numInt;
-        this.codigoPostal = codigoPostal;
-        this.colonia = colonia;
     }
 
     public String getCalle()
@@ -57,14 +49,14 @@ public class Direccion implements Serializable
         this.numInt = numInt;
     }
 
-    public int getCodigoPostal()
+    public Integer getCodPostal()
     {
-        return this.codigoPostal;
+        return this.codPostal;
     }
 
-    public void setCodigoPostal(int codigoPostal)
+    public void setCodPostal(Integer codigoPostal)
     {
-        this.codigoPostal = codigoPostal;
+        this.codPostal = codigoPostal;
     }
 
     public String getColonia()
@@ -75,5 +67,15 @@ public class Direccion implements Serializable
     public void setColonia(String colonia)
     {
         this.colonia = colonia;
+    }
+
+    public String getCiudad()
+    {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad)
+    {
+        this.ciudad = ciudad;
     }
 }

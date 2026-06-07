@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ComentarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/InstitucionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ViviendaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ComentarioService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/InstitucionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ViviendaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mongodb.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_duenios.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/send_json.js" afterDir="false" />
+    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Mas repositorios y servicios agregados, y ahora se pueden agregar al menos dueños">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ComentarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ViviendaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/CasaCompartidaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/ComentarioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/DepartamentoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/DuenioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/EstudianteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/InstitucionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/PensionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/UsuarioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/ViviendaDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/SignupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/CasaCompartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/CasaCompartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Comentario.java" afterDir="false" />
@@ -25,23 +24,19 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Direccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Duenio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Duenio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Estudiante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Institucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Institucion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ListaDeseos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ListaDeseos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/ObjetoMongo.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Pension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Pension.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ComentarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ComentarioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ViviendaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/ViviendaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ComentarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/InstitucionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/InstitucionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/vista/DAOGeneral.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/vista/MongoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/before_signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/before_signup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_estudiantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_estudiantes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/style/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ViviendaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ViviendaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sch/uv/mx/vista/ConexionMongoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sch/uv/mx/vista/MongoDAOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/HomepageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/HomepageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/SignupController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/CasaCompartida.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/CasaCompartida.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Comentario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Comentario.class" afterDir="false" />
@@ -50,14 +45,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Duenio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Duenio.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Estudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Estudiante.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Institucion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Institucion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ListaDeseos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ListaDeseos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/ObjetoMongo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Pension.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Pension.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/ConexionMongo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/DAOGeneral.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/vista/MongoDAO.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +60,9 @@
         <option value="JUnit5 Test Class" />
         <option value="JavaScript File" />
         <option value="Spring Repository" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -172,7 +163,7 @@
       <workItem from="1780506939538" duration="10659000" />
       <workItem from="1780669476145" duration="1732000" />
       <workItem from="1780671256367" duration="1686000" />
-      <workItem from="1780782802863" duration="1281000" />
+      <workItem from="1780782802863" duration="25054000" />
     </task>
     <task id="LOCAL-00002" summary="Lombok y Thymeleaf eliminados del repositorio y modificacion de application.properties y pom.xml para procesar JSPs">
       <option name="closed" value="true" />
@@ -198,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780297822935</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Mas repositorios y servicios agregados, y ahora se pueden agregar al menos dueños">
+      <option name="closed" value="true" />
+      <created>1780784215507</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1780784215508</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +219,7 @@
     <MESSAGE value="Lombok y Thymeleaf eliminados del repositorio y modificacion de application.properties y pom.xml para procesar JSPs" />
     <MESSAGE value="Limpieza de pom.xml" />
     <MESSAGE value="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos" />
+    <MESSAGE value="Mas repositorios y servicios agregados, y ahora se pueden agregar al menos dueños" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mas repositorios y servicios agregados, y ahora se pueden agregar al menos dueños" />
   </component>
 </project>

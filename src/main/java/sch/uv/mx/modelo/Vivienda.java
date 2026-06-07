@@ -5,20 +5,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
-@JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
-        property = "type"
-)
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = CasaCompartida.class, name = "casa_compartida"),
-        @JsonSubTypes.Type(value = Departamento.class, name = "departamento"),
-        @JsonSubTypes.Type(value = Pension.class, name = "pension")
-})
 @Document(collection = "viviendas")
 public class Vivienda implements Serializable
 {
@@ -26,46 +17,20 @@ public class Vivienda implements Serializable
     @Id
     private String ID_Vivienda;
     @Field("RatingTotal")
-    private int ratingTotal;
+    private Integer ratingTotal;
     @Field("Geopunto")
-    private double[] geopunto;
+    private Double[] geopunto;
     @Field("Descripcion")
     private String descripcion;
     @Field("Precio")
-    private double precio;
-    @Field("Duenio")
+    private Double precio;
+    @DocumentReference
     private Duenio duenio;
     @Field("Direccion")
-    private Direccion dir;
+    private Direccion direccion;
 
-    public Vivienda(int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
+    public Vivienda()
     {
-        this.ratingTotal = ratingTotal;
-        this.geopunto = geopunto;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.duenio = duenio;
-        this.dir = dir;
-    }
-
-    public Vivienda(String ID_Vivienda, int ratingTotal, double[] geopunto, String descripcion, double precio, Duenio duenio, Direccion dir)
-    {
-        this.ID_Vivienda = ID_Vivienda;
-        this.ratingTotal = ratingTotal;
-        this.geopunto = geopunto;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.duenio = duenio;
-        this.dir = dir;
-    }
-
-    public Vivienda(Direccion dir, Duenio duenio, double precio, String descripcion, double[] geopunto)
-    {
-        this.dir = dir;
-        this.duenio = duenio;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.geopunto = geopunto;
     }
 
     public String getID_Vivienda()
@@ -73,7 +38,7 @@ public class Vivienda implements Serializable
         return ID_Vivienda;
     }
 
-    public int getRatingTotal()
+    public Integer getRatingTotal()
     {
         return ratingTotal;
     }
@@ -83,12 +48,12 @@ public class Vivienda implements Serializable
         this.ratingTotal = ratingTotal;
     }
 
-    public double[] getGeopunto()
+    public Double[] getGeopunto()
     {
         return geopunto;
     }
 
-    public void setGeopunto(double[] geopunto)
+    public void setGeopunto(Double[] geopunto)
     {
         this.geopunto = geopunto;
     }
@@ -103,12 +68,12 @@ public class Vivienda implements Serializable
         this.descripcion = descripcion;
     }
 
-    public double getPrecio()
+    public Double getPrecio()
     {
         return precio;
     }
 
-    public void setPrecio(double precio)
+    public void setPrecio(Double precio)
     {
         this.precio = precio;
     }
@@ -123,14 +88,14 @@ public class Vivienda implements Serializable
         this.duenio = duenio;
     }
 
-    public Direccion getDir()
+    public Direccion getDireccion()
     {
-        return dir;
+        return direccion;
     }
 
-    public void setDir(Direccion dir)
+    public void setDireccion(Direccion dir)
     {
-        this.dir = dir;
+        this.direccion = dir;
     }
 
 }

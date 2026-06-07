@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UsuarioRepository extends MongoRepository<Usuario, Integer>
+public interface UsuarioRepository extends MongoRepository<Usuario, String>
 {
     <T extends Usuario> Optional<T> findByNombreUsuario(String usrname);
 }

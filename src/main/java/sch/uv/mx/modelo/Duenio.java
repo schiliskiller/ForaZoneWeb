@@ -23,7 +23,7 @@ public class Duenio extends Usuario implements Serializable
     @Field("correoElectronico")
     private String correoElectronico;
     @Field("reputacion")
-    private float reputacion;
+    private Float reputacion;
 
     public Duenio()
     {
@@ -79,7 +79,7 @@ public class Duenio extends Usuario implements Serializable
         this.correoElectronico = correoElectronico;
     }
 
-    public float getReputacion()
+    public Float getReputacion()
     {
         return reputacion;
     }

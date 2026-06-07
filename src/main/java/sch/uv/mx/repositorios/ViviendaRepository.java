@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ViviendaRepository extends MongoRepository<Vivienda, String>
 {
-    List<Vivienda> findAllByDireccionCiudad(String ciudad);
-    List<Vivienda> findAllByDireccionColonia(String colonia);
-    List<Vivienda> findAllByDireccionCodPostal(String codPostal);
+    List<Vivienda> findAllByDireccion_Ciudad(String ciudad);
+    List<Vivienda> findAllByDireccion_Colonia(String colonia);
+    List<Vivienda> findAllByDireccion_CodPostal(Integer codPostal);
 }

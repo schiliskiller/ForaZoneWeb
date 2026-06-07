@@ -11,15 +11,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-@JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
-        property = "type"
-)
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = Estudiante.class, name = "estudiante"),
-        @JsonSubTypes.Type(value = Duenio.class, name = "duenio")
-})
 @Document(collection = "usuarios")
 public abstract class Usuario implements Serializable
 {
@@ -78,6 +69,11 @@ public abstract class Usuario implements Serializable
     public void setFechaNacimiento(LocalDate fecha_Nacimiento)
     {
         fechaNacimiento = fecha_Nacimiento;
+    }
+
+    public void setContrEncriptada(String contr)
+    {
+        this.contrEncriptada = contr;
     }
 
     public String getContrEncriptada()

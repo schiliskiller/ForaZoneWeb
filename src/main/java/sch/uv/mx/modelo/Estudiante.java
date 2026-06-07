@@ -3,6 +3,7 @@ package sch.uv.mx.modelo;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.awt.*;
@@ -19,8 +20,10 @@ public class Estudiante extends Usuario implements Serializable
     private String token;
     @Field("correoInstitucional")
     private String correoInstitucional;
-    @Field("institucion")
+    @DocumentReference
     private Institucion institucion;
+    @Field("listaDeseos")
+    private ListaDeseos lista;
 
     public Estudiante()
     {
