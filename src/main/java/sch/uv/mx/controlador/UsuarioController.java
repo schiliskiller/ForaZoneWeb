@@ -53,10 +53,15 @@ public class UsuarioController
         return ResponseEntity.ok(this.usrServ.buscarTodo());
     }
 
-    @GetMapping
+    @PostMapping("/login")
     public ResponseEntity<Usuario> consultarUsuario(@RequestBody UsuarioDTO usuario)
     {
-        return ResponseEntity.ok(this.usrServ.consultarUsuario(usuario));
+        Usuario usrLogin = this.usrServ.consultarUsuario(usuario);
+
+        return usrLogin != null
+                ? ResponseEntity.ok(usrLogin)
+                : ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                                .build();
     }
 
     @PostMapping

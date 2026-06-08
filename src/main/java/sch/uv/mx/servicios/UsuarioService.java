@@ -104,21 +104,15 @@ public class UsuarioService
     public Usuario consultarUsuario(UsuarioDTO usrDTO)
     {
         Usuario found = null;
-        if (usrDTO instanceof EstudianteDTO estDTO)
+        if (usrDTO instanceof EstudianteDTO estDTO && estDTO.correoInstitucional() != null)
         {
-            if (estDTO.correoInstitucional() != null)
-            {
-                found = this.repository.findByCorreoInstitucional(estDTO.correoInstitucional())
-                                       .orElse(null);
-            }
+            found = this.repository.findByCorreoInstitucional(estDTO.correoInstitucional())
+                                   .orElse(null);
         }
-        else if (usrDTO instanceof DuenioDTO duenioDTO)
+        else if (usrDTO instanceof DuenioDTO duenioDTO && duenioDTO.correoElectronico() != null)
         {
-            if (duenioDTO.correoElectronico() != null)
-            {
-                found = this.repository.findByCorreoElectronico(duenioDTO.correoElectronico())
-                                       .orElse(null);
-            }
+            found = this.repository.findByCorreoElectronico(duenioDTO.correoElectronico())
+                                   .orElse(null);
         }
 
         if (usrDTO.nombreUsuario() != null)
@@ -127,7 +121,7 @@ public class UsuarioService
                                    .orElse(null);
         }
 
-        return usrDTO.contrEncriptada().equals(usrDTO.contrEncriptada())
+        return usrDTO.contrEncriptada() != null && usrDTO.contrEncriptada().equals(found.getContrEncriptada())
                ? found
                : null;
     }

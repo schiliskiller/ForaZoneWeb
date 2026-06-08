@@ -4,31 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Ajustes en servicio y controlador de comentarios, y nuevo servicio y controlador para Institucion">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Ajustes del JS de la creacion de cuenta, Homepage del usuario agregado y reimplementacion de Thymeleaf por complicaciones en el manejo de JSPs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ComentarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/InstitucionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/InstitucionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/SignupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ViviendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ViviendaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/repositorios/UsuarioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/before_signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/signup/before_signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_duenios.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/signup/signup_duenios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signup/signup_estudiantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/signup/signup_estudiantes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/send_json.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/send_json.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/send_json.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/send_json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/HomepageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/HomepageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/SignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/controlador/SignupController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +35,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLabMergeRequestFiltersHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPENED",
+    "assignee": {
+      "type": "org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue",
+      "username": "schiliskiller",
+      "fullname": "Alan M. Schleske"
+    }
+  }
+}]]></component>
+  <component name="GitLabMergeRequestsSettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "first": "git@gitlab.com:schiliskiller/forazoneweb.git",
+    "second": "729f8599-6e7d-4ca5-b91d-7c7c53117a30"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -80,7 +80,7 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/brskr/Documentos/UV/DAW/ForaZone_copy/forazoneweb",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.gitlab.GitLabSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -161,7 +161,7 @@
       <workItem from="1780879000654" duration="193000" />
       <workItem from="1780879224506" duration="5711000" />
       <workItem from="1780885051364" duration="169000" />
-      <workItem from="1780885348790" duration="15579000" />
+      <workItem from="1780885348790" duration="19405000" />
     </task>
     <task id="LOCAL-00002" summary="Lombok y Thymeleaf eliminados del repositorio y modificacion de application.properties y pom.xml para procesar JSPs">
       <option name="closed" value="true" />
@@ -203,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780883971841</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Ajustes del JS de la creacion de cuenta, Homepage del usuario agregado y reimplementacion de Thymeleaf por complicaciones en el manejo de JSPs">
+      <option name="closed" value="true" />
+      <created>1780938292951</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780938292959</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +238,7 @@
     <MESSAGE value="Repositorios de MongoDB y UsuarioController agregados, falta arreglar algunos detallitos" />
     <MESSAGE value="Mas repositorios y servicios agregados, y ahora se pueden agregar al menos dueños" />
     <MESSAGE value="Ajustes en servicio y controlador de comentarios, y nuevo servicio y controlador para Institucion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes en servicio y controlador de comentarios, y nuevo servicio y controlador para Institucion" />
+    <MESSAGE value="Ajustes del JS de la creacion de cuenta, Homepage del usuario agregado y reimplementacion de Thymeleaf por complicaciones en el manejo de JSPs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes del JS de la creacion de cuenta, Homepage del usuario agregado y reimplementacion de Thymeleaf por complicaciones en el manejo de JSPs" />
   </component>
 </project>

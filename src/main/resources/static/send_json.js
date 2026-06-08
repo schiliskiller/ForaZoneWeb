@@ -96,21 +96,22 @@ function sendDuenioJsonData() {
 function sendLoginJsonData() {
     event.preventDefault();
 
+    let campoCorreoNombre = document.getElementById("nombreUsuario").value
+
     const data = {
         type: "duenio",
-        nombreUsuario: document.getElementById('nombreUsuarioDuenio').value,
-        correoElectronico: document.getElementById('correoCuentaNueva').value,
-        contrEncriptada: document.getElementById('contraCuentaNueva').value
+        nombreUsuario: !campoCorreoNombre.includes("@")
+                        ? campoCorreoNombre
+                        : null,
+        correoElectronico: !campoCorreoNombre.includes("@")
+                            ? null
+                            : campoCorreoNombre,
+        contrEncriptada: document.getElementById('contrasena').value
     };
 
-    if (!data.correoElectronico.includes("@"))
-    {
-        alert('Correo incorrecto');
-        return;
-    }
 
-    fetch('/usuario', {
-        method: 'GET',
+    fetch('/usuario/login', {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Tells Spring Boot to look for JSON
         },
@@ -119,7 +120,7 @@ function sendLoginJsonData() {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            window.location.href = '/';
+            window.location.href = '/homepage';
         });
 }
 
