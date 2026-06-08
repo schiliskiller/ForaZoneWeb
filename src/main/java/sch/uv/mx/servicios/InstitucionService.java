@@ -19,6 +19,11 @@ public class InstitucionService
         this.institucionRepository = instRepo;
     }
 
+    public Institucion agregarInstitucion(Institucion inst)
+    {
+        return this.institucionRepository.save(inst);
+    }
+
     public Optional<Institucion> buscarPorNombreInstitucion(String inst)
     {
         return this.institucionRepository.findByNombreInstitucion(inst);

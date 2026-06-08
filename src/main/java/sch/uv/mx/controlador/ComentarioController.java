@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sch.uv.mx.modelo.Comentario;
+import sch.uv.mx.modelo.DTO.ComentarioDTO;
 import sch.uv.mx.servicios.ComentarioService;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class ComentarioController
     }
 
     @PostMapping
-    public ResponseEntity<Comentario> agregarComentario(@RequestBody Comentario comentario)
+    public ResponseEntity<Comentario> agregarComentario(@RequestBody ComentarioDTO comentario)
     {
         return new ResponseEntity<>(
                 this.commServ.agregarComentario(comentario),
@@ -30,7 +31,7 @@ public class ComentarioController
         );
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/list/{id}")
     public ResponseEntity<Comentario> buscarPorId(@PathVariable String id)
     {
         return ResponseEntity.ok(this.commServ.buscarPorId(id));

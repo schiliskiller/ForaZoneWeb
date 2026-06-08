@@ -3,6 +3,7 @@ package sch.uv.mx.servicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sch.uv.mx.modelo.Comentario;
+import sch.uv.mx.modelo.DTO.ComentarioDTO;
 import sch.uv.mx.modelo.Estudiante;
 import sch.uv.mx.repositorios.ComentarioRepository;
 
@@ -22,16 +23,25 @@ public class ComentarioService
         this.usuarioService = serv;
     }
 
-    public Comentario agregarComentario(Comentario comentario)
+    public Comentario agregarComentario(ComentarioDTO commDTO)
     {
+        Comentario comentario = new Comentario();
+
+        comentario.setContenido(commDTO.contenido());
+        comentario.setRating(commDTO.rating());
+        comentario.setAutor(
+                (Estudiante) this.usuarioService.buscarPorId(commDTO.autorId())
+                                                .orElse(null)
+        );
+
         return this.comentarioRepository.save(comentario);
     }
 
     public List<Comentario> buscarPorAutor(String nomAutor)
     {
         return this.comentarioRepository.findByAutor(
-                (Estudiante) usuarioService.buscarPorNombreUsuario(nomAutor)
-                              .orElse(null)
+                (Estudiante) this.usuarioService.buscarPorNombreUsuario(nomAutor)
+                                                .orElse(null)
         );
     }
 
