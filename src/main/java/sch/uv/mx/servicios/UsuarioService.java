@@ -95,4 +95,40 @@ public class UsuarioService
     {
         return this.repository.findAll();
     }
+
+    public Optional<Estudiante> buscarPorCorreo(String correo)
+    {
+        return this.repository.findByCorreoInstitucional(correo);
+    }
+
+    public Usuario consultarUsuario(UsuarioDTO usrDTO)
+    {
+        Usuario found = null;
+        if (usrDTO instanceof EstudianteDTO estDTO)
+        {
+            if (estDTO.correoInstitucional() != null)
+            {
+                found = this.repository.findByCorreoInstitucional(estDTO.correoInstitucional())
+                                       .orElse(null);
+            }
+        }
+        else if (usrDTO instanceof DuenioDTO duenioDTO)
+        {
+            if (duenioDTO.correoElectronico() != null)
+            {
+                found = this.repository.findByCorreoElectronico(duenioDTO.correoElectronico())
+                                       .orElse(null);
+            }
+        }
+
+        if (usrDTO.nombreUsuario() != null)
+        {
+            found = this.repository.findByNombreUsuario(usrDTO.nombreUsuario())
+                                   .orElse(null);
+        }
+
+        return usrDTO.contrEncriptada().equals(usrDTO.contrEncriptada())
+               ? found
+               : null;
+    }
 }

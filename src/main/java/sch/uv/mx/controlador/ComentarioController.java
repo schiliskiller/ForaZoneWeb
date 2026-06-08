@@ -3,6 +3,7 @@ package sch.uv.mx.controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sch.uv.mx.modelo.Comentario;
 import sch.uv.mx.modelo.DTO.ComentarioDTO;
@@ -10,7 +11,7 @@ import sch.uv.mx.servicios.ComentarioService;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/comentario")
 public class ComentarioController
 {

@@ -3,6 +3,7 @@ package sch.uv.mx.controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sch.uv.mx.modelo.DTO.UsuarioDTO;
 import sch.uv.mx.modelo.Estudiante;
@@ -15,8 +16,9 @@ import sch.uv.mx.servicios.UsuarioService;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/usuario")
+@CrossOrigin(origins = "*")
 public class UsuarioController
 {
     @Autowired
@@ -49,6 +51,12 @@ public class UsuarioController
     public ResponseEntity<List<Usuario>> buscarTodo()
     {
         return ResponseEntity.ok(this.usrServ.buscarTodo());
+    }
+
+    @GetMapping
+    public ResponseEntity<Usuario> consultarUsuario(@RequestBody UsuarioDTO usuario)
+    {
+        return ResponseEntity.ok(this.usrServ.consultarUsuario(usuario));
     }
 
     @PostMapping

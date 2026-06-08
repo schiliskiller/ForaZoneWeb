@@ -1,13 +1,14 @@
 // Me apoye con la IA para generar este script
 function sendEstJsonData() {
-    let correo_ver = document.getElementById('correoVerificacion').value;
+    event.preventDefault();
+
     let terminos = document.getElementById('flexCheckDefault').checked;
 
     const data = {
         type: "estudiante",
-        nombreUsuario: document.getElementById('nombreUsuarioDuenio').value,
-        fechaNacimiento: document.getElementById('fechaNacimientoDuenio').value,
-        correoInstitucional: document.getElementById('correoCuentaNueva').value,
+        nombreUsuario: document.getElementById('nombreUsuarioEst').value,
+        fechaNacimiento: document.getElementById('fechaNacimientoEst').value,
+        correoInstitucional: document.getElementById('correoInstitucional').value,
         contrEncriptada: document.getElementById('contraCuentaNueva').value,
         token: null
     };
@@ -24,20 +25,18 @@ function sendEstJsonData() {
         return;
     }
 
-    if (correo_ver !== data.correoInstitucional)
-    {
-        alert('Verificacion de correo no exitoso');
-        return;
-    }
-
-    fetch('/usr', {
+    fetch('http://localhost:8080/usuario', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Tells Spring Boot to look for JSON
         },
         body: JSON.stringify(data) // Sends the payload as a stringified request body
     })
-        .then(response => response.json())
+        .then(response => {
+            console.log('antes');
+            response.json();
+            console.log('despues');
+        })
         .then(data => {
             console.log('Success:', data);
             window.location.href = '/';
@@ -45,6 +44,8 @@ function sendEstJsonData() {
 }
 
 function sendDuenioJsonData() {
+    event.preventDefault();
+
     let correo_ver = document.getElementById('correoVerificacion').value;
     let terminos = document.getElementById('flexCheckDefault').checked;
 
@@ -66,7 +67,7 @@ function sendDuenioJsonData() {
         return;
     }
 
-    if (!data.correoInstitucional.includes("@"))
+    if (!data.correoElectronico.includes("@"))
     {
         alert('Correo incorrecto');
         return;
@@ -78,7 +79,7 @@ function sendDuenioJsonData() {
         return;
     }
 
-    fetch('/usr', {
+    fetch('/usuario', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Tells Spring Boot to look for JSON
@@ -92,7 +93,38 @@ function sendDuenioJsonData() {
         });
 }
 
+function sendLoginJsonData() {
+    event.preventDefault();
+
+    const data = {
+        type: "duenio",
+        nombreUsuario: document.getElementById('nombreUsuarioDuenio').value,
+        correoElectronico: document.getElementById('correoCuentaNueva').value,
+        contrEncriptada: document.getElementById('contraCuentaNueva').value
+    };
+
+    if (!data.correoElectronico.includes("@"))
+    {
+        alert('Correo incorrecto');
+        return;
+    }
+
+    fetch('/usuario', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json' // Tells Spring Boot to look for JSON
+        },
+        body: JSON.stringify(data) // Sends the payload as a stringified request body
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            window.location.href = '/';
+        });
+}
+
 function sendViviendaJsonData() {
+    event.preventDefault();
     const data = {
         type: document.getElementById("").value,
 
@@ -108,6 +140,6 @@ function sendViviendaJsonData() {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            window.location.href = '/';
+            window.location.href = '../../webapp';
         });
 }

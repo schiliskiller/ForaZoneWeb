@@ -1,13 +1,11 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>ForaZone - Iniciar sesion</title>
-        <link rel="stylesheet" href="/style/bootstrap.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <script href="/js/send_json.js"/>
+        <link rel="stylesheet" th:href="@{/bootstrap.css}">
+        <link th:href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script th:src="@{/send_json.js}"></script>
     </head>
     <body>
         <form>
@@ -21,7 +19,7 @@
                     <label for="contraCuentaNueva" class="form-label mt-4">Contraseña nueva</label>
                     <input type="password" class="form-control" id="contraCuentaNueva" placeholder="********" autocomplete="off">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" th:onclick="">Submit</button>
             </fieldset>
         </form>
     </body>
