@@ -1,6 +1,7 @@
 package sch.uv.mx.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import sch.uv.mx.modelo.DTO.DuenioDTO;
 import sch.uv.mx.modelo.DTO.EstudianteDTO;
@@ -21,11 +22,14 @@ public class UsuarioService
     private final UsuarioRepository repository;
     @Autowired
     private final InstitucionService instServ;
+    @Autowired
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository rep, InstitucionService instServ)
+    public UsuarioService(UsuarioRepository rep, InstitucionService instServ, PasswordEncoder pass)
     {
         this.repository = rep;
         this.instServ = instServ;
+        this.passwordEncoder = pass;
     }
 
     public Usuario crearUsuario(UsuarioDTO usrDTO)
@@ -70,7 +74,8 @@ public class UsuarioService
         }
 
         usr.setNombreUsuario(usrDTO.nombreUsuario());
-        usr.setContrEncriptada(usrDTO.contrEncriptada());
+        String contrasenaEncriptada = passwordEncoder.encode(usrDTO.contrEncriptada());
+        usr.setContrEncriptada(contrasenaEncriptada);
         usr.setFechaNacimiento(usrDTO.fechaNacimiento());
 
         return this.repository.save(usr);
@@ -122,7 +127,8 @@ public class UsuarioService
                                    .orElse(null);
         }
 
-        return usrDTO.contrEncriptada() != null && usrDTO.contrEncriptada().equals(found.getContrEncriptada())
+        return usrDTO.contrEncriptada() != null
+                && passwordEncoder.matches(usrDTO.contrEncriptada(), found.getContrEncriptada())
                ? found
                : null;
     }

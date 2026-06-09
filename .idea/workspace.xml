@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Sistema de comentarios ya funcional y ajustes de seguridad">
+    <list default="true" id="f798d40e-0ac8-4235-a1bc-2f247a5e37cc" name="Changes" comment="Sistema de seleccion de geopunto ya funcional y registro de viviendas agregado">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ViviendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/controlador/ViviendaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/CasaCompartidaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/CasaCompartidaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/DepartamentoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/DepartamentoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/PensionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/PensionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/ViviendaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/DTO/ViviendaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/modelo/Vivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ViviendaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sch/uv/mx/servicios/ViviendaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/send_json.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/send_json.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/modelo/Vivienda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sch/uv/mx/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sch/uv/mx/MainApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +27,8 @@
         <option value="Spring Repository" />
         <option value="Interface" />
         <option value="Record" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -169,7 +162,8 @@
       <workItem from="1780879224506" duration="5711000" />
       <workItem from="1780885051364" duration="169000" />
       <workItem from="1780885348790" duration="25130000" />
-      <workItem from="1780955493796" duration="44963000" />
+      <workItem from="1780955493796" duration="45326000" />
+      <workItem from="1781004806607" duration="1113000" />
     </task>
     <task id="LOCAL-00002" summary="Lombok y Thymeleaf eliminados del repositorio y modificacion de application.properties y pom.xml para procesar JSPs">
       <option name="closed" value="true" />
@@ -235,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780987900047</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Sistema de seleccion de geopunto ya funcional y registro de viviendas agregado">
+      <option name="closed" value="true" />
+      <created>1781004135515</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1781004135516</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +267,7 @@
     <MESSAGE value="Ajustes del JS de la creacion de cuenta, Homepage del usuario agregado y reimplementacion de Thymeleaf por complicaciones en el manejo de JSPs" />
     <MESSAGE value="Inicio de sesion ya funcional" />
     <MESSAGE value="Sistema de comentarios ya funcional y ajustes de seguridad" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sistema de comentarios ya funcional y ajustes de seguridad" />
+    <MESSAGE value="Sistema de seleccion de geopunto ya funcional y registro de viviendas agregado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistema de seleccion de geopunto ya funcional y registro de viviendas agregado" />
   </component>
 </project>
