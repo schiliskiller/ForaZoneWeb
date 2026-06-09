@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/")
 public class HomepageController
@@ -23,8 +25,16 @@ public class HomepageController
     }
 
     @GetMapping("/homepage")
-    public String homepage(Model model)
+    public String homepage(Model model, HttpSession session)
     {
-        return "homepage";
+        return session.getAttribute("sesionUsuario") != null ? "homepage" : "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String cerrarSesion(HttpSession session)
+    {
+        session.invalidate();
+
+        return "redirect:/";
     }
 }

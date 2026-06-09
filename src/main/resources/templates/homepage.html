@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>ForaZone - Página principal</title>
 
     <link rel="stylesheet" th:href="@{/bootstrap.css}">
@@ -10,6 +11,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         /* Altura dinámica para que el mapa y la lista ocupen el resto de la pantalla debajo del navbar */
         .main-content {
             height: calc(100vh - 60px);
@@ -24,55 +28,125 @@
             transform: translateY(-3px);
             box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
         }
+
+        .bg-darkblue {
+            background: #372E54;
+        }
     </style>
 </head>
 <body class="bg-light">
-<nav class="navbar navbar-expand-lg bg-danger" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-darkblue" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><b>ForaZone</b></a>
+        <a class="navbar-brand" href="/"><b>ForaZone</b></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Inicio
+                    <a class="nav-link active" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/homepage">Departamentos
                         <span class="visually-hidden">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Departamentos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mapa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nosotros</a>
+                    <a class="nav-link" href="#about">Nosotros</a>
                 </li>
             </ul>
             <div class="d-flex gap-2">
-                <a href="/before" class="btn btn-outline-light">Crear cuenta</a>
-                <a href="/login" class="btn btn-dark">Iniciar sesión</a>
+                <th:block th:if="${session.sesionUsuario == null}">
+                    <a href="/before" class="btn btn-outline-light">Crear cuenta</a>
+                    <a href="/login" class="btn btn-dark">Iniciar sesión</a>
+                </th:block>
+
+                <th:block th:if="${session.sesionUsuario != null}">
+                    <span class="navbar-text text-white me-3">
+                        ¡Hola, <b th:text="${session.sesionUsuario?.nombreUsuario}">Usuario</b>!
+                    </span>
+                    <a href="/logout" class="btn btn-outline-dark bg-light">Cerrar sesión</a>
+                </th:block>
             </div>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid main-content overflow-hidden">
+<div class="container-fluid main-content overflow-hidden" id="dept">
     <div class="row h-100">
+        <div class="col-md-5 col-lg-4 p-3 h-100 d-flex flex-column">
+            <div class="mb-3">
+                <div class="row g-2 mb-2">
+                    <div class="col-12 col-md-4">
+                        <select id="filtro-tipo" class="form-select border-danger shadow-sm">
+                            <option value="todos">Todos los tipos</option>
+                            <option value="departamento">Departamento</option>
+                            <option value="pension">Pensión</option>
+                            <option value="casacompartida">Casa Compartida</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <input type="number" id="filtro-precio-min" class="form-control border-danger shadow-sm" placeholder="Precio Mín." min="0">
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <input type="number" id="filtro-precio-max" class="form-control border-danger shadow-sm" placeholder="Precio Máx." min="0">
+                    </div>
+                </div>
+                <input type="text" id="buscador-viviendas" class="form-control border-danger shadow-sm" placeholder="Buscar colonia o descripción...">
+            </div>
 
-        <div class="col-md-5 col-lg-4 p-3 h-100 overflow-auto" id="contenedor-tarjetas">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="spinner-border text-danger" role="status">
-                    <span class="visually-hidden">Cargando...</span>
+            <div id="contenedor-tarjetas" class="flex-grow-1 overflow-auto pe-2">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
                 </div>
             </div>
+
         </div>
 
         <div class="col-md-7 col-lg-8 p-0 h-100">
             <div id="mapa" class="w-100 h-100"></div>
         </div>
+    </div>
+</div>
 
+<div class="modal fade" id="modalComentarios" tabindex="-1" aria-labelledby="modalComentariosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title" id="modalComentariosLabel">Dejar un comentario</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div id="lista-comentarios" class="mb-4 overflow-auto" style="max-height: 250px;">
+                    <div class="text-center text-muted spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+
+                <hr class="border-secondary">
+
+                <div th:if="${session.sesionUsuario != null}">
+                    <form action="/comentario/guardar" method="POST">
+                        <input type="hidden" name="idVivienda" id="input-modal-idVivienda">
+                        <div class="mb-3">
+                            <label class="form-label text-danger">Agrega tu comentario:</label>
+                            <textarea name="texto" class="form-control border-danger bg-dark text-white" rows="2" placeholder="Ej. ¿Aceptan mascotas?" required></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-danger btn-sm">Publicar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div th:if="${session.sesionUsuario == null}" class="alert alert-warning text-center mb-0">
+                    Necesitas <a href="/login" class="alert-link text-danger">iniciar sesión</a> para comentar.
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 
@@ -82,20 +156,34 @@
 <script>
     // 1. Inicializar el mapa centrado en la zona conurbada
     const mapa = L.map('mapa').setView([19.1462, -96.1030], 13);
+    // Variable para agrupar los pines y poder borrarlos fácilmente
+    const capaPines = L.layerGroup().addTo(mapa);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+    // Aquí guardaremos todas las viviendas originales para no tener que usar el fetch de nuevo
+    let listaViviendasGlobal = [];
+
+    // Reemplazamos el servidor de OpenStreetMap por el de CartoDB (tema Voyager)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
     }).addTo(mapa);
 
     // 2. Cargar los datos desde tu backend
     function cargarViviendas() {
-        fetch('/viviendas')
+        fetch('/vivienda/list')
             .then(response => {
                 if (!response.ok) throw new Error('Error de red');
                 return response.json();
             })
             .then(data => {
+                console.log(data);
                 renderizarViviendas(data);
+                return data;
+            })
+            .then(data => {
+                listaViviendasGlobal = data; // ¡Guardamos los datos aquí!
+                renderizarViviendas(listaViviendasGlobal);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -108,6 +196,14 @@
     function renderizarViviendas(viviendas) {
         const contenedor = document.getElementById('contenedor-tarjetas');
         contenedor.innerHTML = '';
+        capaPines.clearLayers(); // 🧹 ¡Borramos todos los pines del mapa antes de dibujar los nuevos!
+
+        console.log(viviendas);
+        // Mostramos un mensaje si la búsqueda no dio resultados
+        if (viviendas.length === 0) {
+            contenedor.innerHTML = '<div class="alert alert-warning">No se encontraron alojamientos con esa búsqueda.</div>';
+            return;
+        }
 
         viviendas.forEach(vivienda => {
             // Crear tarjeta con clases de Bootstrap
@@ -119,26 +215,31 @@
             }).format(vivienda.precio);
 
             // Estructura interna de la tarjeta de Bootstrap
+            // Dentro de tu forEach en renderizarViviendas...
             tarjeta.innerHTML = `
-                        <div class="card-body">
-                            <span class="badge bg-secondary mb-2 text-capitalize">${vivienda.type || vivienda.tipo}</span>
-                            <h5 class="card-title text-success fw-bold">${precioFormateado} <small class="text-muted fs-6 fw-normal">/ mes</small></h5>
-                            <h6 class="card-subtitle mb-2 text-muted">📍 ${vivienda.direccion.colonia}, ${vivienda.direccion.ciudad}</h6>
-                            <p class="card-text text-truncate">${vivienda.descripcion}</p>
-                        </div>
-                    `;
+                <div class="card-body">
+                    <span class="badge bg-danger mb-2 text-capitalize">${vivienda.tipo}</span>
+                    <h5 class="card-title text-success fw-bold">$${vivienda.precio} <small class="text-muted fs-6 fw-normal">/ mes</small></h5>
+                    <p class="card-text text-truncate">${vivienda.descripcion}</p>
+
+                    <div class="text-end mt-3">
+                        <button onclick="abrirModalComentario('${vivienda.ID_Vivienda}', '${vivienda.tipo}'); event.stopPropagation();" class="btn btn-outline-danger btn-sm">
+                            Comentar
+                        </button>
+                    </div>
+                </div>
+            `;
 
             contenedor.appendChild(tarjeta);
 
-            // Agregar el pin al mapa
             if (vivienda.geopunto && vivienda.geopunto.length === 2) {
                 const lat = vivienda.geopunto[1];
                 const lng = vivienda.geopunto[0];
 
-                const marker = L.marker([lat, lng]).addTo(mapa);
+                // 🛑 OJO AQUÍ: Agregamos el pin a capaPines, no a mapa
+                const marker = L.marker([lat, lng]).addTo(capaPines);
                 marker.bindPopup(`<b>${vivienda.direccion.calle}</b><br>${precioFormateado}`);
 
-                // Interactividad: Clic en la tarjeta mueve el mapa
                 tarjeta.addEventListener('click', () => {
                     mapa.flyTo([lat, lng], 16, { duration: 1.5 });
                     marker.openPopup();
@@ -146,6 +247,105 @@
             }
         });
     }
+
+    // Esperamos a que el HTML termine de cargar
+    document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionamos todos los enlaces de la barra de navegación
+        const enlacesNav = document.querySelectorAll('.navbar-nav .nav-link');
+
+        enlacesNav.forEach(enlace => {
+            enlace.addEventListener('click', function() {
+                // 1. Le quitamos la clase 'active' a todos los enlaces
+                enlacesNav.forEach(nav => nav.classList.remove('active'));
+
+                // 2. Le ponemos la clase 'active' (blanco puro) al que acabas de clickear
+                this.classList.add('active');
+            });
+        });
+    });
+
+    // Función centralizada para manejar todos los filtros al mismo tiempo
+    function aplicarFiltros() {
+        if (!listaViviendasGlobal) return;
+
+        // 1. Capturamos los valores actuales de la interfaz gráfica
+        const textoBusqueda = document.getElementById('buscador-viviendas').value.toLowerCase();
+        const tipoSeleccionado = document.getElementById('filtro-tipo').value.toLowerCase();
+
+        // Obtenemos los textos de los inputs numéricos
+        const minStr = document.getElementById('filtro-precio-min').value;
+        const maxStr = document.getElementById('filtro-precio-max').value;
+
+        // Magia de validación: si está vacío el mínimo es 0, si está vacío el máximo es infinito
+        const precioMinimo = minStr === '' ? 0 : parseFloat(minStr);
+        const precioMaximo = maxStr === '' ? Infinity : parseFloat(maxStr);
+
+        const resultadosFiltrados = listaViviendasGlobal.filter(vivienda => {
+            const colonia = (vivienda.direccion?.colonia || '').toLowerCase();
+            const descripcion = (vivienda.descripcion || '').toLowerCase();
+            const tipo = (vivienda.tipo || '').toLowerCase();
+            const precio = vivienda.precio || 0;
+
+            // Condición A: Tipo de alojamiento
+            const coincideTipo = (tipoSeleccionado === 'todos') || (tipo === tipoSeleccionado);
+
+            // Condición B: Texto de búsqueda
+            const coincideTexto = (textoBusqueda === '') ||
+                colonia.includes(textoBusqueda) ||
+                descripcion.includes(textoBusqueda);
+
+            // Condición C: El precio debe estar entre el Min y Max escritos por el usuario
+            const coincidePrecio = (precio >= precioMinimo) && (precio <= precioMaximo);
+
+            // La vivienda debe cumplir las TRES condiciones de manera simultánea
+            return coincideTipo && coincideTexto && coincidePrecio;
+        });
+
+        renderizarViviendas(resultadosFiltrados);
+    }
+
+    function abrirModalComentario(idVivienda, tipoAlojamiento) {
+        document.getElementById('modalComentariosLabel').innerText = `Comentarios sobre este ${tipoAlojamiento}`;
+
+        const inputOculto = document.getElementById('input-modal-idVivienda');
+        if(inputOculto) inputOculto.value = idVivienda;
+
+        const contenedorComentarios = document.getElementById('lista-comentarios');
+        // Ponemos un "Cargando..." por si el internet está lento
+        contenedorComentarios.innerHTML = '<div class="text-center text-muted small">Buscando comentarios...</div>';
+
+        // 🛑 Le pedimos a Spring Boot los comentarios de esta vivienda específica
+        fetch(`/comentario/vivienda/${idVivienda}`)
+            .then(response => response.json())
+            .then(comentarios => {
+                if (comentarios.length === 0) {
+                    contenedorComentarios.innerHTML = '<p class="text-muted small text-center mt-2">Aún no hay comentarios. ¡Sé el primero en opinar!</p>';
+                } else {
+                    // Dibujamos cada comentario que regresó la base de datos
+                    contenedorComentarios.innerHTML = comentarios.map(c => `
+                    <div class="bg-dark border border-secondary rounded p-2 mb-2 text-white">
+                        <p class="mb-1 small">${c.contenido}</p>
+                        </div>
+                `).join('');
+                }
+            })
+            .catch(error => {
+                console.error("Error cargando comentarios:", error);
+                contenedorComentarios.innerHTML = '<p class="text-danger small text-center mt-2">Error al cargar los comentarios.</p>';
+            });
+
+        // Mostramos la ventanita
+        const modal = new bootstrap.Modal(document.getElementById('modalComentarios'));
+        modal.show();
+    }
+
+    // Escuchadores de eventos para detectar cualquier cambio inmediatamente
+    document.getElementById('buscador-viviendas').addEventListener('input', aplicarFiltros);
+    document.getElementById('filtro-tipo').addEventListener('change', aplicarFiltros);
+
+    // NUEVO: Escuchadores para los inputs de precio (usan 'input' para filtrar en tiempo real mientras tecleas)
+    document.getElementById('filtro-precio-min').addEventListener('input', aplicarFiltros);
+    document.getElementById('filtro-precio-max').addEventListener('input', aplicarFiltros);
 
     // Arrancar
     cargarViviendas();

@@ -14,6 +14,8 @@ public class Comentario implements Serializable
     private static final long serialVersionUID = 1L;
     @Id
     private String ID_Comentario;
+    @DocumentReference
+    private Vivienda vivienda;
     @Field("Contenido")
     private String contenido;
     @Field("Rating")
@@ -71,5 +73,15 @@ public class Comentario implements Serializable
     public void setAutor(Estudiante autor)
     {
         this.autor = autor;
+    }
+
+    public Vivienda getVivienda()
+    {
+        return this.vivienda;
+    }
+
+    public void setVivienda(Vivienda v)
+    {
+        this.vivienda = v;
     }
 }

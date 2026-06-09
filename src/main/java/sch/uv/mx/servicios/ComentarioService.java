@@ -16,11 +16,14 @@ public class ComentarioService
     private final ComentarioRepository comentarioRepository;
     @Autowired
     private final UsuarioService usuarioService;
+    @Autowired
+    private final ViviendaService viviendaService;
 
-    public ComentarioService(ComentarioRepository repo, UsuarioService serv)
+    public ComentarioService(ComentarioRepository repo, UsuarioService serv, ViviendaService vivi)
     {
         this.comentarioRepository = repo;
         this.usuarioService = serv;
+        this.viviendaService = vivi;
     }
 
     public Comentario agregarComentario(ComentarioDTO commDTO)
@@ -28,6 +31,7 @@ public class ComentarioService
         Comentario comentario = new Comentario();
 
         comentario.setContenido(commDTO.contenido());
+        comentario.setVivienda(this.viviendaService.buscarPorId(commDTO.viviendaId()));
         comentario.setRating(commDTO.rating());
         comentario.setAutor(
                 (Estudiante) this.usuarioService.buscarPorId(commDTO.autorId())
@@ -48,6 +52,13 @@ public class ComentarioService
     public Comentario buscarPorId(String id)
     {
         return this.comentarioRepository.findById(id).orElse(null);
+    }
+
+    public List<Comentario> buscarPorVivienda(String viviendaId)
+    {
+        return this.comentarioRepository.findByVivienda(
+                this.viviendaService.buscarPorId(viviendaId)
+        );
     }
 
     public List<Comentario> buscarTodo()

@@ -13,6 +13,7 @@ import sch.uv.mx.repositorios.UsuarioRepository;
 import sch.uv.mx.servicios.InstitucionService;
 import sch.uv.mx.servicios.UsuarioService;
 
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,9 +55,14 @@ public class UsuarioController
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> consultarUsuario(@RequestBody UsuarioDTO usuario)
+    public ResponseEntity<Usuario> consultarUsuario(@RequestBody UsuarioDTO usuario, HttpSession session)
     {
         Usuario usrLogin = this.usrServ.consultarUsuario(usuario);
+
+        if (usrLogin != null)
+        {
+            session.setAttribute("sesionUsuario", usrLogin);
+        }
 
         return usrLogin != null
                 ? ResponseEntity.ok(usrLogin)

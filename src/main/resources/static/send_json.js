@@ -144,3 +144,23 @@ function sendViviendaJsonData() {
             window.location.href = '../../webapp';
         });
 }
+
+// function sendComentarioJsonData() {
+//     event.preventDefault();
+//     const data = {
+//         viviendaId:
+//     };
+//
+//     fetch('/vivienda', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json' // Tells Spring Boot to look for JSON
+//         },
+//         body: JSON.stringify(data) // Sends the payload as a stringified request body
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log('Success:', data);
+//             window.location.href = '../../webapp';
+//         });
+// }

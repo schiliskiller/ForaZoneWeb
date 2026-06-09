@@ -10,6 +10,7 @@ import sch.uv.mx.modelo.DTO.ViviendaDTO;
 import sch.uv.mx.repositorios.ViviendaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ViviendaService
@@ -90,5 +91,10 @@ public class ViviendaService
     public List<Vivienda> buscarTodo()
     {
         return this.viviendaRepository.findAll();
+    }
+
+    public Vivienda buscarPorId(String id)
+    {
+        return this.viviendaRepository.findById(id).orElse(null);
     }
 }
