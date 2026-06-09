@@ -62,6 +62,8 @@ public class UsuarioController
         if (usrLogin != null)
         {
             session.setAttribute("sesionUsuario", usrLogin);
+            session.setAttribute("rolActual", usrLogin.getTipo());
+            System.out.println(usrLogin + " " + usrLogin.getTipo());
         }
 
         return usrLogin != null

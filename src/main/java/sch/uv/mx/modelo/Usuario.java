@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -79,6 +80,12 @@ public abstract class Usuario implements Serializable
     public String getContrEncriptada()
     {
         return contrEncriptada;
+    }
+
+    @Transient // Para no guardar el atributo en un nuevo documento
+    public String getTipo()
+    {
+        return this.getClass().getSimpleName();
     }
 
     public String encriptar(String contr)

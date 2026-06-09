@@ -10,7 +10,8 @@ import sch.uv.mx.modelo.Pension;
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
-        property = "type"
+        property = "type",
+        visible = true
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = CasaCompartidaDTO.class, name = "casa_compartida"),
@@ -19,6 +20,7 @@ import sch.uv.mx.modelo.Pension;
 })
 public interface ViviendaDTO
 {
+    String type();
     Integer ratingTotal();
     Double[] geopunto();
     String descripcion();

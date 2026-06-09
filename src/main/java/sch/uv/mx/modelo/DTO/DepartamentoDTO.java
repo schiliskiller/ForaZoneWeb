@@ -9,6 +9,7 @@ public record DepartamentoDTO(
         Double precio,
         String duenioId,
         Direccion direccion,
+        String type,
         Integer numeroHabitaciones,
         Double cuotaMantenimiento
 ) implements ViviendaDTO {}

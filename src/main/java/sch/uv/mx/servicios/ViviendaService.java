@@ -1,5 +1,6 @@
 package sch.uv.mx.servicios;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sch.uv.mx.modelo.*;
@@ -26,9 +27,13 @@ public class ViviendaService
         this.usuarioService = serv;
     }
 
-    public Vivienda agregarVivienda(ViviendaDTO vivi)
+    public Vivienda agregarVivienda(ViviendaDTO vivi, HttpSession session)
     {
         Vivienda newVivienda = null;
+        String rol = (String) session.getAttribute("rolActual");
+        Duenio due = rol.equalsIgnoreCase("duenio")
+                        ? (Duenio) session.getAttribute("sesionUsuario")
+                        : null;
 
         if (vivi instanceof DepartamentoDTO deptDTO)
         {
@@ -60,15 +65,24 @@ public class ViviendaService
             return null;
         }
 
+        newVivienda.setEsSugerencia(rol.equalsIgnoreCase("estudiante"));
+
         newVivienda.setRatingTotal(vivi.ratingTotal());
         newVivienda.setDescripcion(vivi.descripcion());
         newVivienda.setGeopunto(vivi.geopunto());
         newVivienda.setPrecio(vivi.precio());
         newVivienda.setDireccion(vivi.direccion());
-        newVivienda.setDuenio(
-                (Duenio) this.usuarioService.buscarPorId(vivi.duenioId())
-                             .orElse(null)
-        );
+        if (vivi.duenioId() != null)
+        {
+            newVivienda.setDuenio(
+                    (Duenio) this.usuarioService.buscarPorId(vivi.duenioId())
+                            .orElse(null)
+            );
+        }
+        else
+        {
+            newVivienda.setDuenio(due);
+        }
 
         return this.viviendaRepository.save(newVivienda);
     }

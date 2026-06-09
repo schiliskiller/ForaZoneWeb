@@ -29,6 +29,8 @@ public class Vivienda implements Serializable
     private Duenio duenio;
     @Field("Direccion")
     private Direccion direccion;
+    @Field("EsSugerencia")
+    private Boolean esSugerencia;
 
     public Vivienda()
     {
@@ -97,6 +99,16 @@ public class Vivienda implements Serializable
     public void setDireccion(Direccion dir)
     {
         this.direccion = dir;
+    }
+
+    public Boolean getEsSugerencia()
+    {
+        return this.esSugerencia;
+    }
+
+    public void setEsSugerencia(Boolean sug)
+    {
+        this.esSugerencia = sug;
     }
 
     @Transient // Para no guardar el atributo en un nuevo documento

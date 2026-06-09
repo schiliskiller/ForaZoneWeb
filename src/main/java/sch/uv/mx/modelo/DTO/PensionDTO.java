@@ -9,6 +9,7 @@ public record PensionDTO(
         Double precio,
         String duenioId,
         Direccion direccion,
+        String type,
         Boolean incluyeAlimentos,
         Integer numeroComidasAlDia
 ) implements ViviendaDTO {}

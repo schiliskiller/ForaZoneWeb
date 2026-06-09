@@ -9,6 +9,7 @@ public record CasaCompartidaDTO(
         Double precio,
         String duenioId,
         Direccion direccion,
+        String type,
         Integer numeroPisos,
         Boolean tienePatio
 ) implements ViviendaDTO {}

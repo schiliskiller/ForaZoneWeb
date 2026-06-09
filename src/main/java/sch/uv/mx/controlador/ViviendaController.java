@@ -31,10 +31,11 @@ public class ViviendaController
     }
 
     @PostMapping
-    public ResponseEntity<Vivienda> agregarVivienda(@RequestBody ViviendaDTO vivi)
+    @ResponseBody
+    public ResponseEntity<Vivienda> agregarVivienda(@RequestBody ViviendaDTO vivi, HttpSession session)
     {
         return new ResponseEntity<>(
-                this.viviServ.agregarVivienda(vivi),
+                this.viviServ.agregarVivienda(vivi, session),
                 HttpStatus.CREATED
         );
     }
@@ -68,5 +69,4 @@ public class ViviendaController
     {
         return ResponseEntity.ok(this.viviServ.buscarTodo());
     }
-
 }

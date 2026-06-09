@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script th:src="@{/send_json.js}"></script>
 
     <style>
         html {
@@ -62,6 +63,9 @@
                 </th:block>
 
                 <th:block th:if="${session.sesionUsuario != null}">
+                    <button class="btn btn-outline-danger" data-bs-toggle="modal" onclick="abrirModalSugerencia()" data-bs-target="#modalNuevaVivienda">
+                        + Agregar Vivienda
+                    </button>
                     <span class="navbar-text text-white me-3">
                         ¡Hola, <b th:text="${session.sesionUsuario?.nombreUsuario}">Usuario</b>!
                     </span>
@@ -133,7 +137,7 @@
                         <input type="hidden" name="idVivienda" id="input-modal-idVivienda">
                         <div class="mb-3">
                             <label class="form-label text-danger">Agrega tu comentario:</label>
-                            <textarea name="texto" class="form-control border-danger bg-dark text-white" rows="2" placeholder="Ej. ¿Aceptan mascotas?" required></textarea>
+                            <textarea name="texto" class="form-control border-danger" rows="2" placeholder="Ej. ¿Aceptan mascotas?" required></textarea>
                         </div>
                         <div class="text-end">
                             <button type="submit" class="btn btn-danger btn-sm">Publicar</button>
@@ -145,6 +149,127 @@
                     Necesitas <a href="/login" class="alert-link text-danger">iniciar sesión</a> para comentar.
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="banner-seleccion-mapa"
+     class="position-fixed top-0 start-50 translate-middle-x mt-4 bg-dark text-white p-3 rounded border border-danger shadow-lg"
+     style="display: none; z-index: 9999;"> <span class="fs-6">▲ Navega y haz clic en el mapa para fijar el pin</span>
+    <button type="button" class="btn btn-sm btn-secondary ms-3 rounded-pill" onclick="cancelarSeleccionMapa()">Cancelar</button>
+</div>
+<div class="modal fade" id="modalNuevaVivienda" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header border-danger">
+                <h5 class="modal-title">Registrar Nuevo Alojamiento</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-nueva-vivienda">
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label text-danger">Tipo</label>
+                            <select name="tipo" id="select-tipo-vivienda" class="form-select border-secondary" onchange="cambiarCamposEspeciales()">
+                                <option value="departamento">Departamento</option>
+                                <option value="pension">Pensión</option>
+                                <option value="casa_compartida">Casa Compartida</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label text-danger">Precio Mensual ($)</label>
+                            <input type="number" name="precio" class="form-control border-secondary" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label text-danger">Descripción</label>
+                            <textarea name="descripcion" class="form-control border-secondary" rows="2" required></textarea>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label text-danger">Ciudad</label>
+                            <input type="text" name="direccion.ciudad" class="form-control border-secondary" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-danger">Colonia</label>
+                            <input type="text" name="direccion.colonia" class="form-control border-secondary" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-danger">Calle</label>
+                            <input type="text" name="direccion.calle" class="form-control border-secondary" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-danger">Número Ext.</label>
+                            <input type="text" name="direccion.numExt" class="form-control border-secondary" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-danger">Número Int.</label>
+                            <input type="text" name="direccion.numInt" class="form-control border-secondary" placeholder="Opcional">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-danger">C.P.</label>
+                            <input type="number" name="direccion.codPostal" class="form-control border-secondary" required>
+                        </div>
+
+                        <div class="col-12 text-center mt-2 border border-secondary p-3 rounded">
+                            <p class="mb-2 text-white">¿Dónde se encuentra el alojamiento?</p>
+                            <button type="button" class="btn btn-outline-danger rounded-pill" onclick="iniciarSeleccionMapa()">
+                                📍 Elegir ubicación en el mapa
+                            </button>
+                            <div id="texto-exito-mapa" class="text-success mt-2 fw-bold" style="display: none;">
+                                <small>✅ Ubicación capturada</small>
+                            </div>
+
+                            <input type="hidden" id="nueva-latitud" name="latitud">
+                            <input type="hidden" id="nueva-longitud" name="longitud">
+                        </div>
+                        <hr class="border-secondary mt-4 w-100">
+
+                        <div id="campos-departamento" class="col-12 row g-3 m-0 p-0 campos-dinamicos">
+                            <div class="col-md-6">
+                                <label class="form-label text-danger">Número de Habitaciones</label>
+                                <input type="number" name="numeroHabitaciones" class="form-control border-secondary" min="1" value="1">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-danger">Cuota de Mantenimiento ($)</label>
+                                <input type="number" name="cuotaMantenimiento" class="form-control border-secondary" min="0" value="0">
+                            </div>
+                        </div>
+
+                        <div id="campos-pension" class="col-12 row g-3 m-0 p-0 campos-dinamicos" style="display: none;">
+                            <div class="col-md-6 d-flex align-items-end pb-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input bg-danger border-danger" type="checkbox" name="incluyeAlimentos" id="checkAlimentos" value="true">
+                                    <label class="form-check-label" for="checkAlimentos">¿Incluye Alimentos?</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-danger">Comidas al Día</label>
+                                <input type="number" name="numeroComidasAlDia" class="form-control border-secondary" min="0" value="0">
+                            </div>
+                        </div>
+
+                        <div id="campos-casa_compartida" class="col-12 row g-3 m-0 p-0 campos-dinamicos" style="display: none;">
+                            <div class="col-md-6 d-flex align-items-end pb-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input bg-danger border-danger" type="checkbox" name="tienePatio" id="checkPatio" value="true">
+                                    <label class="form-check-label" for="checkPatio">¿Tiene Patio?</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-danger">Número de Pisos</label>
+                                <input type="number" name="numeroPisos" class="form-control border-secondary" min="1" value="1">
+                            </div>
+                        </div>
+
+                    </div> <div class="text-end mt-4">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" onclick="enviarNuevaVivienda()">Guardar</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -323,7 +448,8 @@
                 } else {
                     // Dibujamos cada comentario que regresó la base de datos
                     contenedorComentarios.innerHTML = comentarios.map(c => `
-                    <div class="bg-dark border border-secondary rounded p-2 mb-2 text-white">
+                    <div class="border border-secondary rounded p-2 mb-2">
+                        <p class="mb-1 small"><b>${c.autor.nombreUsuario}</b></p>
                         <p class="mb-1 small">${c.contenido}</p>
                         </div>
                 `).join('');
@@ -335,9 +461,118 @@
             });
 
         // Mostramos la ventanita
-        const modal = new bootstrap.Modal(document.getElementById('modalComentarios'));
+        const modal = bootstrap.getOrCreateInstance(document.getElementById('modalComentarios'));
         modal.show();
     }
+
+    // Función para abrir el modal de nueva vivienda sin que Bootstrap se trabe
+    function abrirModalSugerencia() {
+        const elementoModal = document.getElementById('modalNuevaVivienda');
+
+        if (elementoModal) {
+            const modal = bootstrap.Modal.getOrCreateInstance(elementoModal);
+            modal.show();
+        } else {
+            console.error("No se encontró el HTML del modal en la página.");
+        }
+    }
+
+    // Función para mostrar solo los inputs del tipo de alojamiento seleccionado
+    function cambiarCamposEspeciales() {
+        // 1. Obtenemos exactamente el valor del select
+        const selectElement = document.getElementById('select-tipo-vivienda');
+        if (!selectElement) {
+            console.error("JS no encuentra el select de tipos.");
+            return;
+        }
+
+        const tipoSeleccionado = selectElement.value;
+        console.log("Cambiando a tipo de vivienda:", tipoSeleccionado);
+
+        // 2. Buscamos TODOS los contenedores dinámicos SOLO dentro de este formulario
+        // Esto evita que JS apague campos de otros modales si tienes más en tu código
+        const formulario = document.getElementById('form-nueva-vivienda');
+        const todosLosCampos = formulario.querySelectorAll('.campos-dinamicos');
+
+        // 3. Los apagamos todos primero
+        todosLosCampos.forEach(div => {
+            div.style.display = 'none';
+        });
+
+        // 4. Armamos el ID exacto que queremos encender
+        const idBuscado = 'campos-' + tipoSeleccionado;
+        const camposAMostrar = document.getElementById(idBuscado);
+
+        // 5. Lo encendemos
+        if (camposAMostrar) {
+            camposAMostrar.style.display = 'flex'; // Usamos flex porque en Bootstrap los row son flexbox
+            console.log("✅ Se mostró el contenedor con ID:", idBuscado);
+        } else {
+            console.error("❌ OJO: JS buscó el contenedor", idBuscado, "pero no lo encontró en el HTML.");
+        }
+    }
+
+    // Ejemplo de cómo podrías usarlo al abrir el modal
+    function prepararModalSugerencia() {
+        const alertaInfo = document.getElementById('alerta-rol-usuario');
+
+        if (ROL_USUARIO === 'estudiante') {
+            alertaInfo.innerHTML = 'Tú registro se enviará como <b>Sugerencia</b> para revisión comunitaria.';
+            alertaInfo.className = 'alert alert-warning mt-3';
+        } else if (ROL_USUARIO === 'duenio') {
+            alertaInfo.innerHTML = 'El alojamiento se publicará de manera <b>Oficial</b> en el mapa.';
+            alertaInfo.className = 'alert alert-success mt-3';
+        }
+    }
+
+    let seleccionandoEnMapa = false;
+    let marcadorTemporal = null;
+
+    // 1. Función que esconde el modal y prepara el mapa
+    function iniciarSeleccionMapa() {
+        // Escondemos el modal
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('modalNuevaVivienda')).hide();
+
+        // Mostramos el banner flotante arriba
+        document.getElementById('banner-seleccion-mapa').style.display = 'block';
+
+        // Activamos la bandera
+        seleccionandoEnMapa = true;
+    }
+
+    // 2. Función para regresar al modal sin elegir nada
+    function cancelarSeleccionMapa() {
+        document.getElementById('banner-seleccion-mapa').style.display = 'none';
+        seleccionandoEnMapa = false;
+
+        // Reabrimos el modal
+        const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('modalNuevaVivienda'));
+        modal.show();
+    }
+
+    // 3. El evento del clic en el mapa (Solo funciona si la bandera está activa)
+    mapa.on('click', function(e) {
+        if (!seleccionandoEnMapa) return; // Si no estamos en modo selección, ignorar el clic
+
+        const lat = e.latlng.lat;
+        const lng = e.latlng.lng;
+
+        // Guardamos los datos en los inputs ocultos
+        document.getElementById('nueva-latitud').value = lat.toFixed(6);
+        document.getElementById('nueva-longitud').value = lng.toFixed(6);
+
+        // Dibujamos el pin temporal
+        if(marcadorTemporal) mapa.removeLayer(marcadorTemporal);
+        marcadorTemporal = L.marker([lat, lng]).addTo(mapa);
+
+        // Mostramos la palomita verde de éxito en el modal
+        document.getElementById('texto-exito-mapa').style.display = 'block';
+
+        // Ocultamos el banner y reabrimos el modal automáticamente
+        cancelarSeleccionMapa();
+    });
+
+
 
     // Escuchadores de eventos para detectar cualquier cambio inmediatamente
     document.getElementById('buscador-viviendas').addEventListener('input', aplicarFiltros);

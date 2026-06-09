@@ -111,6 +111,7 @@ public class UsuarioService
         }
         else if (usrDTO instanceof DuenioDTO duenioDTO && duenioDTO.correoElectronico() != null)
         {
+
             found = this.repository.findByCorreoElectronico(duenioDTO.correoElectronico())
                                    .orElse(null);
         }
